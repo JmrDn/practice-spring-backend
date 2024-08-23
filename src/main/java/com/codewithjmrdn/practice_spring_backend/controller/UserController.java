@@ -27,13 +27,13 @@ public class UserController {
     List<User> getUser(){return userRepository.findAll();}
 
 
-    @GetMapping("users/{id}")
+    @GetMapping("/users/{id}")
     User getUserById(@PathVariable Integer id){
         return userRepository.findById(id)
                 .orElseThrow(()-> new UserNotFoundException(id));
     }
 
-    @PutMapping("users/{id}")
+    @PutMapping("/users/{id}")
     User updateUser(@RequestBody User newUser, @PathVariable Integer id){
         return userRepository.findById(id)
                 .map(user -> {
@@ -45,7 +45,7 @@ public class UserController {
                 .orElseThrow(()-> new UserNotFoundException(id));
     }
 
-    @DeleteMapping("users/{id}")
+    @DeleteMapping("/users/{id}")
     String deleteUser(@PathVariable Integer id){
         if (!userRepository.existsById(id)){
             throw  new UserNotFoundException(id);
