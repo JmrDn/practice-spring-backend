@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:4000/")
+@CrossOrigin(origins = {"http://localhost:4000/", "https://practice-spring-frontend.vercel.app/"})
 public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @GetMapping("/")
+    String pingSpring(){
+        return "Successfully Ping!";
+    }
     @PostMapping("/user")
     User newUser (@RequestBody User newUser){
         return userRepository.save(newUser);
