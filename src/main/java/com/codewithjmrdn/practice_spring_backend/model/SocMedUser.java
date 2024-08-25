@@ -5,14 +5,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class SocMedUser {
     @Id
     @GeneratedValue
     private int id;
     private String username;
     private String name;
     private String email;
-
+    private String imgName;
 
     public int getId() {
         return id;
@@ -44,5 +44,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getImgName() {
+        return imgName;
+    }
+
+    public void setImgName(String imgName) {
+        this.imgName = imgName;
     }
 }
